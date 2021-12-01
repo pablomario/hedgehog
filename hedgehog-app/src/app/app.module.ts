@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { FooterComponent } from './public/components/footer/footer.component';
 import { HeroComponent } from './public/components/hero/hero.component';
 import { SignupComponent } from './public/components/signup/signup.component';
 import { TimelineComponent } from './dashboard/views/timeline/timeline.component';
+import { RepositorySelectorComponent } from './dashboard/core/repository-selector/repository-selector.component';
 
 
 @NgModule({
@@ -32,12 +34,15 @@ import { TimelineComponent } from './dashboard/views/timeline/timeline.component
     FooterComponent,
     HeroComponent,
     SignupComponent,
-    TimelineComponent
+    TimelineComponent,
+    RepositorySelectorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,10 +21,8 @@
     height: 100%;
     margin-left: -3px;
     z-index: 5;
-    //background: rgb(80,80,80);
-    //background: linear-gradient(to bottom, #f99d1c02 0%, #f99c1c 8%, #f05a22 92%, #ed007e00 100%);
     background: #6d50ff;
-    background: linear-gradient(to bottom, #6d50ff00 0%, #6d50ff 5%, #6d50ff 95%, #6d50ff00 100%);
+    background: linear-gradient(to bottom, #f05c2200 0%, #f09322e2 5%, #ee225d 50%, #ee0f87 95%, #ee0f8700 100%);
   }
   
   .timeline li {
@@ -42,8 +40,7 @@
 
 
   /**
-  * CSS DE LAS CARDS
-  *
+  * CSS DE LAS CARDS *
   */
 
   .hedge-card-separator {
@@ -56,7 +53,6 @@
     h5{
       padding: 20px 20px 15px 20px;
     }
-
   }
 
   .direction-l {
@@ -112,27 +108,3 @@
     float: left;
   }
 
-
-  .direction-r:before{
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: -5px;
-    width: 25px;
-    height: 25px;
-    border-width: 25px;
-    border-style: solid;
-    border-color: transparent red transparent transparent;
-  }
-
-  .direction-l:after{
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 100%;
-    width: 25px;
-    height: 25px;
-    border-width: 25px;
-    border-style: solid;
-    border-color: transparent transparent transparent blue;
-  }
