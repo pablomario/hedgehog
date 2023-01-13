@@ -1,14 +1,27 @@
 const expressjs = require('express');
+const bodyparser = require('body-parser')
 const cors = require('cors');
 const axios = require('axios');
+const mongo = require('mongodb').MongoClient;
+
 
 const server = expressjs();
 const puerto = 3000;
 
+
+/**
+ * SERVER CUSTOM CONFIG
+ * Enabled CORS
+ * Enable body-parser
+ */
 server.use(cors({
     origin: '*',
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
 }));
+server.use(bodyparser.json());
+server.use(bodyparser.urlencoded({ extended: true }));
+
+
 
 logger = (level, message) => {
     switch (level) {
@@ -49,26 +62,27 @@ server.get('/repos', async (request, response) => {
         let baseurl = `https://api.github.com/users/${owner}/repos`;
         logger('info', 'Get respository from ' + baseurl);
         let respuesta = await axios.get(baseurl).then( (respuesta) => {
-            return respuesta.data;
+            // return respuesta.data;
+            logger('info', 'Response from /repos');
+            return response.json(respuesta.data);
         }).catch( (error) => {
-            logger('error', 'Error en /repos');
-            return error;
+            logger('info', 'No data from /repos');
+            return response.json({status: 'error', message: 'No data ' + error });
         });
 
-        console.log(respuesta.status);
-
-        if( respuesta.status === 200 ){
-            logger('info', 'Response from /repos');
-            response.json(respuesta.data);
-        } else {
-            logger('info', 'No data from /repos');
-            response.json({status: 'error', message: 'No data'});
-        }
 
     } else {
         logger('error', 'Query param "owner" is undefined');
     }
+})
+
+
+server.post('/operations/saverepo', async(request, response) => {
+    logger('info', 'Request received at endpoint POST "/operations/saverepo" ');
+    console.log(request.body);
+    response.json({status: 'ok'})
 });
+
 
 /**
  * /repos/{owner}/{repo}/branches'
@@ -81,20 +95,12 @@ server.get('/branches', async (request, response) => {
         let baseurl = `https://api.github.com/repos/${owner}/${repo}/branches`;
         logger('info', 'Get respository from ' + baseurl);
         let respuesta = await axios.get(baseurl).then( (respuesta) => {
-            return respuesta.data;
-        }).catch( (error) => {
-            logger('error', 'Error en /branches');
-            return error;
-        });
-        
-        if( respuesta.status === 200 ){
             logger('info', 'Response from /branches');
-            response.json(respuesta);
-        } else {
+            return response.json(respuesta.data);
+        }).catch( (error) => {
             logger('info', 'No data from /branches');
-            response.json({status: 'error', message: 'No data'});
-        }
-
+            return response.json({status: 'error', message: error});
+        });
     } else {
         logger('error', 'Query param "owner" or "repo" are undefined');
     }

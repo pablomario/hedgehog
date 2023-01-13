@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<div class="container-flex __hedge-home">
+  <div class="row">
+    
+  </div>
+</div>
+
+<div class="container px-0 col-xl-10 col-xxl-10 py-5">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 mb-3">Perfil</h1>
+      <p class="col-lg-10 fs-4">
+        <a href="#" class="d-flex align-items-center link-dark text-decoration-none" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src={{userProfile.avatar}} alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>{{userProfile.username}}</strong>
+        </a>
+      </p>
+      <p class="col-lg-10 fs-4">
+        {{userProfile.email}}
+      </p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+      
+    </div>
+  </div>
+</div>
+
+<div class="container px-0 col-xl-10 col-xxl-10 py-5">
+  <button class="btn btn-primary" type="button" routerLink="/dashboard"> << Volver</button>
+</div>

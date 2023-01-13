@@ -60,15 +60,21 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="#" class="nav-link link-dark" routerLink="/dashboard/hello">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-              Home
+              Hello
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link link-dark">
+            <a href="#" class="nav-link link-dark" routerLink="/dashboard/repository">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-              New project...
+              Git Projects...
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark" routerLink="/dashboard/properties">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer"/></svg>
+              Pilotajes...
             </a>
           </li>
         </ul>
@@ -79,7 +85,7 @@
             <strong>Pablo Mario</strong>
           </a>
           <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/dashboard/profile">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Sign out</a></li>
           </ul>

@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
           if ( this.signUpData.username === 'pablo@etherealroot.com' && 
           this.signUpData.password === 'Pablo_123') {
             this.initUserSession();
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/dashboard/hello']);
           } else {
             alert("Wrong Username or Password!");
           }
@@ -46,6 +46,7 @@ export class SignupComponent implements OnInit {
     sessionStorage.setItem('latest-connection', new Date().getTime.toString() );
     sessionStorage.setItem('username', 'Dino T-Rex');
     sessionStorage.setItem('email', this.signUpData.username);
+    sessionStorage.setItem('unique', this.signUpData.username);
   }
 
 

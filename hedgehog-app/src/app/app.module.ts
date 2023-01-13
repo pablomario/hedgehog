@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './public/home/home.component';
 import { FaqsComponent } from './public/faqs/faqs.component';
 import { SidebarComponent } from './dashboard/core/sidebar/sidebar.component';
-import { ProjectsComponent } from './dashboard/views/projects/projects.component';
 import { ConfigurationsComponent } from './dashboard/views/configurations/configurations.component';
 import { ProfileComponent } from './dashboard/views/profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,13 +17,14 @@ import { HeroComponent } from './public/components/hero/hero.component';
 import { SignupComponent } from './public/components/signup/signup.component';
 import { TimelineComponent } from './dashboard/views/timeline/timeline.component';
 import { RepositorySelectorComponent } from './dashboard/core/repository-selector/repository-selector.component';
+import { PropertiesComponent } from './dashboard/views/properties/properties.component';
+import { HelloComponent } from './dashboard/views/hello/hello.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ProjectsComponent,
     ConfigurationsComponent,
     ProfileComponent,
     DashboardComponent,
@@ -35,7 +35,9 @@ import { RepositorySelectorComponent } from './dashboard/core/repository-selecto
     HeroComponent,
     SignupComponent,
     TimelineComponent,
-    RepositorySelectorComponent
+    RepositorySelectorComponent,
+    PropertiesComponent,
+    HelloComponent
   ],
   imports: [
     BrowserModule,

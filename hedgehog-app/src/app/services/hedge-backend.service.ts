@@ -58,11 +58,19 @@ export class HedgeBackendService {
     return this.http.get( this.API_ENDPOINT + '/commits' + queryParams)
   }
 
-  
-
-
-
-
+  /**
+   * Save user repo
+   */
+  _postSaveUserRepo( _owner: String, _repositoryOwner: String, _repositoryProject: String, _repositoryBranch: String ) {
+    this._debug('_postSaveUserRepo', arguments);
+    let body = {
+      owner: _owner,
+      repositoryOwner: _repositoryOwner,
+      repositoryProject: _repositoryProject,
+      repositoryBranch: _repositoryBranch
+    }
+    return this.http.post( this.API_ENDPOINT + '/operations/saverepo', body );
+  }
 
   
   // Miscelanea

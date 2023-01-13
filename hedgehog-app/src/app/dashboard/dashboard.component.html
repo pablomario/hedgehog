@@ -5,15 +5,11 @@
             <app-sidebar></app-sidebar>
         </div>
         <div class="col-10">
-            <div class="row">
-                
-                <app-timeline></app-timeline>
-               
-            </div>
-            <div class="row">
-                <app-projects></app-projects>
+            <div class="row hedge-content">
+                <router-outlet></router-outlet>
+
+                <app-footer></app-footer>               
             </div>
         </div>
     </div>
-
 </div>

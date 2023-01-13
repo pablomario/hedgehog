@@ -56,6 +56,7 @@ export class RepositorySelectorComponent implements OnInit {
       .subscribe((valueChanged: any) => {
         this.branchList = [];
         this.userRepositoryForm.controls.repositoryBranch.setErrors({'required': true});
+        console.log('VALUECHANGED:  ' , valueChanged);
         this.getBranchFromProject(valueChanged);
       }
     );
@@ -65,16 +66,12 @@ export class RepositorySelectorComponent implements OnInit {
 
   getReposFromOwner(owner: String): void {
     this.backSrv._getRepoFromOwner(owner).subscribe((data: any) => {
-      if ( data.status === undefined ) {
+      if ( data === undefined ) {
         console.log('RARO');
       } else {
-
         this.projectsList = data;
       }
     });
-
-  
-
   }
 
 
@@ -83,19 +80,23 @@ export class RepositorySelectorComponent implements OnInit {
     this.backSrv._getBranchFromRepo(owner, repo).subscribe((data: any) => {
       if (data.length > 0) {
         this.branchList = data;
-      }
+      }      
     });
   }
   
-
   getGithubOwner(event: any): void {
     console.log('Focus Out Value='+ event.target.value);
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.userRepositoryForm.value);
-  }
+    let repoData = this.userRepositoryForm.value;
+    let unique: any =  sessionStorage.getItem('unique');
+    this.backSrv._postSaveUserRepo(unique, repoData.repositoryOwner, repoData.repositoryProject, repoData.repositoryBranch )
+      .subscribe((data: any) => {
+        // TODO DATA 
+      })
 
+
+  }
 
 }
